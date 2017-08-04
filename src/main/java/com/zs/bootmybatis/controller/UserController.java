@@ -8,21 +8,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zs.bootmybatis.entity.User;
 import com.zs.bootmybatis.mapper.UserMapper;
 import com.zs.bootmybatis.service.IUserService;
+
 /**
 */
 @RestController
-@RequestMapping({"/home"})
+@RequestMapping({ "/home" })
 public class UserController {
-	
-	
-@Autowired
-IUserService userService;
 
+	@Autowired
+	IUserService userService;
 
-@RequestMapping(value = "/user")
-@ResponseBody
-public String user(){
-User user = userService.findUserByName("李四");
-return user.getName()+"-----"+user.getAge();
-}
+	@RequestMapping(value = "/user")
+	@ResponseBody
+	public String user() {
+		User user = userService.findUserByName("李四");
+		return user.getName() + "-----" + user.getAge();
+	}
+	@RequestMapping(value = "/haha")
+	public String insertUser() {
+		return "hahahah";
+	}
+	
 }
